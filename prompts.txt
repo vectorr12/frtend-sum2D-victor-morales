@@ -48,3 +48,37 @@ Sección D — Preferencias de Entrega y Confirmación
 Incluye los campos obligatorios, los campos condicionales que aparecen según la selección del usuario, un contador para los textarea y los botones Registrar ingreso (submit), Limpiar (reset) y el enlace Volver al inicio hacia index.html."] ------------------------------------------------------------
 RESPUESTA RECIBIDA (resumen breve): [añadio todo lo que pedi datos de cilente rut correo etc lo mismo con las demas coisas ] ------------------------------------------------------
 ------ REFLEXION PERSONAL: [util añadio formulario y quita las cosas que no pedia la prueba y añadi las que faltaban] 
+
+
+
+
+Etapa del proyecto: Etapa 2  Fecha:
+[20/05/2026] ------------------------------------------------------------
+PROMPT ENVIADO A COPILOT: [Añadide 
+Estilo visual similar a index.html:ondo oscuro con degradadotarjetas/fieldsets con fondo translúcido y sombra suave botones con acento azul y estilo más parejoFormulario centrado y con ancho máximo de 750px
+Campos con :focus visual:
+borde azul
+sombra suave
+Clases preparadas para Etapa 3:
+.campo-error
+.campo-ok
+Secciones claramente separadas:
+fieldset con fondo distinto
+bordes redondeados
+encabezado legend destacado
+Diseño responsivo:
+dos columnas en desktop
+una columna en mobile
+Etiquetas asociadas y requeridas con asterisco:
+todos los inputs/select/textarea tienen label
+los campos obligatorios muestran *
+Grupos de radio buttons y checkboxes dentro de fieldset + legend:
+tipo de cliente
+tipo de problema
+modalidad de entrega
+preferencia de contacto
+Lógica condicional mejorada:
+campos adicionales se muestran/ocultan correctamente
+los campos condicionales se marcan como required cuando aparecen] ------------------------------------------------------------
+RESPUESTA RECIBIDA (resumen breve): [añadiotodo lo pedido hizo el formulario mas similiar al index ya hecho ] ------------------------------------------------------
+------ REFLEXION PERSONAL: [util util añadio cosas que me faltaban y hizo el formulario mas parecido al index con alguno errores simple de texto que no se veia pero lo corregia a mano y se soluciono facil] 

@@ -6,15 +6,18 @@
     <title>Ingreso de equipo | TechFix</title>
     <style>
       :root {
-        --fondo: #eef2ff;
-        --blanco: #ffffff;
-        --gris-claro: #d1d5db;
-        --gris: #4b5563;
-        --texto: #111827;
-        --primario: #3730a3;
-        --secundario: #2563eb;
-        --acento: #eab308;
-        --borde: 18px;
+        --fondo: #0d1117;
+        --fondo-claro: #141b25;
+        --fondo-card: rgba(255, 255, 255, 0.06);
+        --blanco: #5c5b5b;
+        --gris-claro: #8997a8;
+        --gris: #9ca3af;
+        --texto: #767bc5;
+        --primario: #3d8bfd;
+        --secundario: #1db48f;
+        --acento: #ffbf47;
+        --borde: 20px;
+        --max-form: 750px;
       }
 
       * {
@@ -25,18 +28,20 @@
         margin: 0;
         min-height: 100vh;
         font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+        background: radial-gradient(circle at top left, rgba(61, 139, 253, 0.18), transparent 28%),
+          linear-gradient(180deg, #0d1117 0%, #111827 100%);
         color: var(--texto);
       }
 
       .pagina {
-        width: min(100%, 1200px);
+        width: min(100%, calc(var(--max-form) + 2rem));
         margin: 0 auto;
         padding: 2rem 1rem 3rem;
       }
 
       .encabezado {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
         gap: 1rem;
@@ -46,7 +51,7 @@
       .encabezado img {
         width: 56px;
         border-radius: 16px;
-        background: rgba(99, 102, 241, 0.12);
+        background: rgba(255, 255, 255, 0.08);
       }
 
       .encabezado h1 {
@@ -57,18 +62,22 @@
       form {
         display: grid;
         gap: 1.5rem;
+        max-width: var(--max-form);
+        margin: 0 auto;
       }
 
       fieldset {
-        border: 1px solid #cbd5e1;
+        border: 1px solid rgba(255, 255, 255, 0.12);
         border-radius: var(--borde);
         padding: 1.5rem;
-        background: var(--blanco);
+        background: var(--fondo-card);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
       }
 
       legend {
         font-weight: 700;
         color: var(--primario);
+        font-size: 1.05rem;
       }
 
       .grupo {
@@ -92,16 +101,41 @@
         font-size: 0.95rem;
       }
 
+      .requerido {
+        color: var(--acento);
+        margin-left: 0.2rem;
+      }
+
       input,
       select,
       textarea {
         width: 100%;
-        padding: 0.9rem 1rem;
-        border: 1px solid #cbd5e1;
-        border-radius: 0.9rem;
+        padding: 0.95rem 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 0.95rem;
         font: inherit;
         color: var(--texto);
-        background: #f8fafc;
+        background: rgba(255, 255, 255, 0.08);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        border-color: var(--primario);
+        box-shadow: 0 0 0 4px rgba(61, 139, 253, 0.18);
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      .campo-error {
+        border-color: #f87171 !important;
+        box-shadow: 0 0 0 4px rgba(248, 113, 113, 0.16) !important;
+      }
+
+      .campo-ok {
+        border-color: #34d399 !important;
+        box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.16) !important;
       }
 
       textarea {
@@ -112,13 +146,6 @@
       .nota {
         font-size: 0.85rem;
         color: var(--gris);
-      }
-
-      .linea {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        align-items: center;
       }
 
       .radio-grupo,
@@ -132,7 +159,7 @@
       .checkbox-grupo label {
         display: inline-flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0.55rem;
         font-weight: 600;
       }
 
@@ -146,7 +173,7 @@
       }
 
       .contador {
-        margin-top: 0.3rem;
+        margin-top: 0.35rem;
         font-size: 0.85rem;
         color: var(--gris);
       }
@@ -165,16 +192,23 @@
         padding: 0.95rem 1.8rem;
         font-weight: 700;
         cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .boton:hover {
+        transform: translateY(-1px);
       }
 
       .boton--principal {
         background: var(--primario);
-        color: white;
+        color: #0d1117;
+        box-shadow: 0 16px 30px rgba(61, 139, 253, 0.25);
       }
 
       .boton--secundario {
-        background: #e2e8f0;
+        background: rgba(255, 255, 255, 0.08);
         color: var(--texto);
+        border: 1px solid rgba(255, 255, 255, 0.12);
       }
 
       .enlace-inicio {
@@ -208,54 +242,54 @@
           <div class="grupo">
             <div class="fila">
               <label>
-                Nombre completo
+                <span>Nombre completo <span class="requerido">*</span></span>
                 <input type="text" name="nombre" required />
               </label>
               <label>
-                DNI
+                <span>DNI <span class="requerido">*</span></span>
                 <input type="text" name="dni" required />
               </label>
             </div>
 
             <div class="fila">
               <label>
-                Correo electrónico
+                <span>Correo electrónico <span class="requerido">*</span></span>
                 <input type="email" name="email" required />
               </label>
               <label>
-                Confirmar correo electrónico
+                <span>Confirmar correo electrónico <span class="requerido">*</span></span>
                 <input type="email" name="emailConfirm" required />
               </label>
             </div>
 
             <div class="fila">
               <label>
-                Teléfono de contacto
+                <span>Teléfono de contacto <span class="requerido">*</span></span>
                 <input type="tel" name="telefono" required />
               </label>
-              <div>
-                <span>Tipo de cliente</span>
+              <fieldset class="grupo" aria-label="Tipo de cliente">
+                <legend>Tipo de cliente <span class="requerido">*</span></legend>
                 <div class="radio-grupo">
                   <label><input type="radio" name="tipoCliente" value="Particular" checked /> Particular</label>
                   <label><input type="radio" name="tipoCliente" value="Empresa" /> Empresa</label>
                 </div>
-              </div>
+              </fieldset>
             </div>
 
             <div id="empresaCampos" style="display:none" class="fila">
               <label>
-                Nombre de la empresa
+                <span>Nombre de la empresa</span>
                 <input type="text" name="empresaNombre" />
               </label>
               <label>
-                CUIT
+                <span>CUIT</span>
                 <input type="text" name="empresaCuit" />
               </label>
             </div>
 
             <div class="fila">
               <label>
-                Provincia
+                <span>Provincia <span class="requerido">*</span></span>
                 <select name="provincia" required>
                   <option value="">Seleccione una provincia</option>
                   <option>Buenos Aires</option>
@@ -271,7 +305,7 @@
                 </select>
               </label>
               <label>
-                Localidad
+                <span>Localidad <span class="requerido">*</span></span>
                 <input type="text" name="localidad" required />
               </label>
             </div>
@@ -283,7 +317,7 @@
           <div class="grupo">
             <div class="fila">
               <label>
-                Tipo de dispositivo
+                <span>Tipo de dispositivo <span class="requerido">*</span></span>
                 <select id="tipoDispositivo" name="tipoDispositivo" required>
                   <option value="">Seleccione un tipo</option>
                   <option>Notebook</option>
@@ -295,7 +329,7 @@
                 </select>
               </label>
               <label>
-                Marca
+                <span>Marca <span class="requerido">*</span></span>
                 <select id="marcaEquipo" name="marca" required>
                   <option value="">Seleccione una marca</option>
                   <option>HP</option>
@@ -314,25 +348,25 @@
 
             <div id="otroDispositivo" style="display:none" class="fila">
               <label>
-                Especificar dispositivo
+                <span>Especificar dispositivo</span>
                 <input type="text" name="otroDispositivo" />
               </label>
             </div>
 
             <div id="otraMarca" style="display:none" class="fila">
               <label>
-                Marca alternativa
+                <span>Marca alternativa</span>
                 <input type="text" name="marcaOtra" />
               </label>
             </div>
 
             <div class="fila">
               <label>
-                Modelo
+                <span>Modelo <span class="requerido">*</span></span>
                 <input type="text" name="modelo" required />
               </label>
               <label>
-                Número de serie o IMEI
+                <span>Número de serie o IMEI</span>
                 <input type="text" name="serie" />
                 <span class="nota">Se encuentra en la etiqueta inferior o en la configuración del equipo.</span>
               </label>
@@ -340,7 +374,7 @@
 
             <div class="fila">
               <label>
-                Sistema operativo
+                <span>Sistema operativo <span class="requerido">*</span></span>
                 <select name="sistemaOperativo" required>
                   <option value="">Seleccione una opción</option>
                   <option>Windows 10</option>
@@ -359,7 +393,7 @@
                 </label>
                 <div id="garantiaCampos" style="display:none; margin-top:0.5rem;">
                   <label>
-                    Orden de compra / Fecha de compra
+                    <span>Orden de compra / Fecha de compra</span>
                     <input type="text" name="ordenCompra" />
                   </label>
                 </div>
@@ -383,7 +417,7 @@
           <div class="grupo">
             <div class="fila">
               <label>
-                Tipo de problema principal
+                <span>Tipo de problema principal <span class="requerido">*</span></span>
                 <select name="tipoProblema" required>
                   <option value="">Seleccione un problema</option>
                   <option>No enciende</option>
@@ -397,7 +431,7 @@
                 </select>
               </label>
               <label>
-                Desde cuándo ocurre el problema
+                <span>Desde cuándo ocurre el problema <span class="requerido">*</span></span>
                 <select name="duracionProblema" required>
                   <option value="">Seleccione una opción</option>
                   <option>Hoy</option>
@@ -408,16 +442,16 @@
               </label>
             </div>
 
-            <div>
-              <span>El problema es</span>
+            <fieldset class="grupo" aria-label="Tipo de problema permanente o intermitente">
+              <legend>El problema es <span class="requerido">*</span></legend>
               <div class="radio-grupo">
                 <label><input type="radio" name="problemaPermanente" value="Permanente" required /> Permanente</label>
                 <label><input type="radio" name="problemaPermanente" value="Intermitente" /> Intermitente</label>
               </div>
-            </div>
+            </fieldset>
 
             <label>
-              Descripción detallada del problema
+              <span>Descripción detallada del problema <span class="requerido">*</span></span>
               <textarea id="descripcionProblema" name="descripcionProblema" minlength="20" maxlength="500" required></textarea>
               <span class="contador" id="contadorDescripcion">0 / 500</span>
             </label>
@@ -428,7 +462,7 @@
             </label>
             <div id="detalleReparacion" style="display:none;">
               <label>
-                Describa qué se hizo anteriormente
+                <span>Describa qué se hizo anteriormente</span>
                 <textarea id="detalleReparacionTexto" name="detalleReparacion" maxlength="300"></textarea>
                 <span class="contador" id="contadorDetalle">0 / 300</span>
               </label>
@@ -439,23 +473,23 @@
         <fieldset>
           <legend>Sección D — Preferencias de Entrega y Confirmación</legend>
           <div class="grupo">
-            <div>
-              <span>Modalidad de entrega</span>
+            <fieldset class="grupo" aria-label="Modalidad de entrega">
+              <legend>Modalidad de entrega <span class="requerido">*</span></legend>
               <div class="radio-grupo">
                 <label><input type="radio" name="modalidadEntrega" value="Local" required /> Lo llevo personalmente al local</label>
                 <label><input type="radio" name="modalidadEntrega" value="Domicilio" /> Solicito retiro a domicilio</label>
               </div>
-            </div>
+            </fieldset>
 
             <div id="direccionDomicilio" style="display:none; margin-top:1rem;">
               <label>
-                Dirección completa
+                <span>Dirección completa <span class="requerido">*</span></span>
                 <input type="text" name="direccionDomicilio" />
               </label>
             </div>
 
             <label>
-              Presupuesto máximo autorizado sin consulta previa
+              <span>Presupuesto máximo autorizado sin consulta previa <span class="requerido">*</span></span>
               <select name="presupuesto" required>
                 <option value="">Seleccione una opción</option>
                 <option>Hasta $5.000</option>
@@ -466,17 +500,18 @@
               </select>
             </label>
 
-            <div>
-              <span>Preferencia de contacto</span>
+            <fieldset class="grupo" aria-label="Preferencia de contacto">
+              <legend>Preferencia de contacto <span class="requerido">*</span></legend>
               <div class="checkbox-grupo">
                 <label><input type="checkbox" name="contacto[]" value="WhatsApp" /> WhatsApp</label>
                 <label><input type="checkbox" name="contacto[]" value="Correo" /> Correo electrónico</label>
                 <label><input type="checkbox" name="contacto[]" value="Llamada" /> Llamada telefónica</label>
               </div>
-            </div>
+              <p class="nota">Al menos una opción debe estar seleccionada.</p>
+            </fieldset>
 
             <label>
-              Horario preferido para ser contactado
+              <span>Horario preferido para ser contactado <span class="requerido">*</span></span>
               <select name="horarioContacto" required>
                 <option value="">Seleccione una opción</option>
                 <option>Mañana 9 a 12</option>
@@ -517,36 +552,52 @@
       const detalleReparacion = document.getElementById('detalleReparacion');
       const modalidadEntrega = document.querySelectorAll('input[name="modalidadEntrega"]');
       const direccionDomicilio = document.getElementById('direccionDomicilio');
+      const direccionInput = document.querySelector('input[name="direccionDomicilio"]');
       const descripcionProblema = document.getElementById('descripcionProblema');
       const contadorDescripcion = document.getElementById('contadorDescripcion');
       const detalleReparacionTexto = document.getElementById('detalleReparacionTexto');
       const contadorDetalle = document.getElementById('contadorDetalle');
+      const empresaNombre = document.querySelector('input[name="empresaNombre"]');
+      const empresaCuit = document.querySelector('input[name="empresaCuit"]');
+      const marcaOtraInput = document.querySelector('input[name="marcaOtra"]');
+      const otroDispositivoInput = document.querySelector('input[name="otroDispositivo"]');
       const form = document.getElementById('formIngreso');
 
       function actualizarEmpresa() {
         const seleccionado = document.querySelector('input[name="tipoCliente"]:checked').value;
-        empresaCampos.style.display = seleccionado === 'Empresa' ? 'grid' : 'none';
+        const visible = seleccionado === 'Empresa';
+        empresaCampos.style.display = visible ? 'grid' : 'none';
+        empresaNombre.required = visible;
+        empresaCuit.required = visible;
       }
 
       function actualizarDispositivo() {
-        otroDispositivo.style.display = tipoDispositivo.value === 'Otro' ? 'grid' : 'none';
+        const visible = tipoDispositivo.value === 'Otro';
+        otroDispositivo.style.display = visible ? 'grid' : 'none';
+        otroDispositivoInput.required = visible;
       }
 
       function actualizarMarca() {
-        otraMarca.style.display = marcaEquipo.value === 'Otra' ? 'grid' : 'none';
+        const visible = marcaEquipo.value === 'Otra';
+        otraMarca.style.display = visible ? 'grid' : 'none';
+        marcaOtraInput.required = visible;
       }
 
       function actualizarGarantia() {
-        garantiaCampos.style.display = garantiaVigente.checked ? 'block' : 'none';
+        const visible = garantiaVigente.checked;
+        garantiaCampos.style.display = visible ? 'block' : 'none';
       }
 
       function actualizarReparadoAntes() {
-        detalleReparacion.style.display = reparadoAntes.checked ? 'block' : 'none';
+        const visible = reparadoAntes.checked;
+        detalleReparacion.style.display = visible ? 'block' : 'none';
       }
 
       function actualizarEntrega() {
         const seleccionado = document.querySelector('input[name="modalidadEntrega"]:checked');
-        direccionDomicilio.style.display = seleccionado && seleccionado.value === 'Domicilio' ? 'block' : 'none';
+        const visible = seleccionado && seleccionado.value === 'Domicilio';
+        direccionDomicilio.style.display = visible ? 'block' : 'none';
+        direccionInput.required = visible;
       }
 
       function actualizarContador(textarea, contador) {
