@@ -7,3 +7,9 @@ hardware y soporte remoto] -----------------------------------------------------
 RESPUESTA RECIBIDA (resumen breve): [hizo las bases de css html y los estilos nav y pies nesecesarios] ----------------------------------------------------------
 -- USO EN EL PROYECTO: [si la modifique.] ------------------------------------------------------
 ------ REFLEXION PERSONAL: [si fue util para tener una maqueta para guiarme y modificar lo que me guste] 
+
+Etapa del proyecto: Etapa 1  Fecha:
+[20/05/2026] ------------------------------------------------------------
+PROMPT ENVIADO A COPILOT: [haz el el html mas simple y pon un boton para un formulario para el html formulario.html y añade la imagen de la carpeta images imagen 1.webp que es el logo de la empresa] ------------------------------------------------------------
+RESPUESTA RECIBIDA (resumen breve): [en el formulario puso el boton para abrir el formulario] ------------------------------------------------------
+------ REFLEXION PERSONAL: [no fue nada util yo añadi el boton para el formulario a mano] 

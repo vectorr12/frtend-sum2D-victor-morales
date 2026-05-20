@@ -214,6 +214,21 @@ h2 {
   justify-content: center;
 }
 
+.hero-nav__marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.hero-logo {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.35rem;
+}
+
 .hero-nav__link {
   color: var(--texto);
   opacity: 0.85;
@@ -226,6 +241,13 @@ h2 {
 
 .hero .boton {
   margin-right: 0.75rem;
+}
+
+.hero__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .pie-pagina {
