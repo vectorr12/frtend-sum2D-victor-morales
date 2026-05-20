@@ -3,54 +3,600 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Formulario TechFix</title>
+    <title>Ingreso de equipo | TechFix</title>
     <style>
+      :root {
+        --fondo: #eef2ff;
+        --blanco: #ffffff;
+        --gris-claro: #d1d5db;
+        --gris: #4b5563;
+        --texto: #111827;
+        --primario: #3730a3;
+        --secundario: #2563eb;
+        --acento: #eab308;
+        --borde: 18px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
       body {
         margin: 0;
-        font-family: Arial, sans-serif;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
         min-height: 100vh;
-        background: #f4f6fb;
-        color: #1f2937;
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+        color: var(--texto);
       }
-      .logo {
-        max-width: 180px;
+
+      .pagina {
+        width: min(100%, 1200px);
+        margin: 0 auto;
+        padding: 2rem 1rem 3rem;
+      }
+
+      .encabezado {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
         margin-bottom: 1.5rem;
       }
-      .contenedor {
-        text-align: center;
-        padding: 2rem;
-        background: white;
-        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1);
+
+      .encabezado img {
+        width: 56px;
         border-radius: 16px;
-        width: min(100%, 420px);
+        background: rgba(99, 102, 241, 0.12);
       }
+
+      .encabezado h1 {
+        margin: 0;
+        font-size: clamp(1.8rem, 2vw, 2.6rem);
+      }
+
+      form {
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      fieldset {
+        border: 1px solid #cbd5e1;
+        border-radius: var(--borde);
+        padding: 1.5rem;
+        background: var(--blanco);
+      }
+
+      legend {
+        font-weight: 700;
+        color: var(--primario);
+      }
+
+      .grupo {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .fila {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .fila--3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      label {
+        display: grid;
+        gap: 0.35rem;
+        font-size: 0.95rem;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 0.9rem 1rem;
+        border: 1px solid #cbd5e1;
+        border-radius: 0.9rem;
+        font: inherit;
+        color: var(--texto);
+        background: #f8fafc;
+      }
+
+      textarea {
+        min-height: 116px;
+        resize: vertical;
+      }
+
+      .nota {
+        font-size: 0.85rem;
+        color: var(--gris);
+      }
+
+      .linea {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      .radio-grupo,
+      .checkbox-grupo {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .radio-grupo label,
+      .checkbox-grupo label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 600;
+      }
+
+      .advertencia {
+        padding: 0.95rem 1rem;
+        border-radius: 1rem;
+        background: rgba(254, 196, 0, 0.14);
+        color: #78350f;
+        border: 1px solid rgba(251, 191, 36, 0.35);
+        font-size: 0.94rem;
+      }
+
+      .contador {
+        margin-top: 0.3rem;
+        font-size: 0.85rem;
+        color: var(--gris);
+      }
+
+      .acciones {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 0.4rem;
+      }
+
       .boton {
-        display: inline-block;
-        margin-top: 1.5rem;
-        padding: 0.95rem 1.8rem;
         border: none;
         border-radius: 999px;
-        background: #2563eb;
-        color: white;
-        font-size: 1rem;
+        padding: 0.95rem 1.8rem;
+        font-weight: 700;
         cursor: pointer;
-        text-decoration: none;
       }
-      .boton:hover {
-        background: #1d4ed8;
+
+      .boton--principal {
+        background: var(--primario);
+        color: white;
+      }
+
+      .boton--secundario {
+        background: #e2e8f0;
+        color: var(--texto);
+      }
+
+      .enlace-inicio {
+        display: inline-block;
+        color: var(--secundario);
+        text-decoration: none;
+        font-weight: 700;
+        margin-top: 0.2rem;
+      }
+
+      @media (max-width: 860px) {
+        .fila,
+        .fila--3 {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
   <body>
-    <div class="contenedor">
-      <img src="images/imagen 1.webp" alt="Logo TechFix" class="logo" />
-      <h1>Formulario TechFix</h1>
-      <p>Haz clic en el botón para acceder al formulario de contacto o servicio técnico.</p>
-      <a href="#" class="boton">Abrir formulario</a>
+    <div class="pagina">
+      <header class="encabezado">
+        <div>
+          <img src="images/imagen 1.webp" alt="Logo TechFix" />
+          <h1>Ingreso de equipo</h1>
+        </div>
+      </header>
+
+      <form id="formIngreso" novalidate>
+        <fieldset>
+          <legend>Sección A — Datos del Cliente</legend>
+          <div class="grupo">
+            <div class="fila">
+              <label>
+                Nombre completo
+                <input type="text" name="nombre" required />
+              </label>
+              <label>
+                DNI
+                <input type="text" name="dni" required />
+              </label>
+            </div>
+
+            <div class="fila">
+              <label>
+                Correo electrónico
+                <input type="email" name="email" required />
+              </label>
+              <label>
+                Confirmar correo electrónico
+                <input type="email" name="emailConfirm" required />
+              </label>
+            </div>
+
+            <div class="fila">
+              <label>
+                Teléfono de contacto
+                <input type="tel" name="telefono" required />
+              </label>
+              <div>
+                <span>Tipo de cliente</span>
+                <div class="radio-grupo">
+                  <label><input type="radio" name="tipoCliente" value="Particular" checked /> Particular</label>
+                  <label><input type="radio" name="tipoCliente" value="Empresa" /> Empresa</label>
+                </div>
+              </div>
+            </div>
+
+            <div id="empresaCampos" style="display:none" class="fila">
+              <label>
+                Nombre de la empresa
+                <input type="text" name="empresaNombre" />
+              </label>
+              <label>
+                CUIT
+                <input type="text" name="empresaCuit" />
+              </label>
+            </div>
+
+            <div class="fila">
+              <label>
+                Provincia
+                <select name="provincia" required>
+                  <option value="">Seleccione una provincia</option>
+                  <option>Buenos Aires</option>
+                  <option>Catamarca</option>
+                  <option>Córdoba</option>
+                  <option>Corrientes</option>
+                  <option>Entre Ríos</option>
+                  <option>Jujuy</option>
+                  <option>La Pampa</option>
+                  <option>Mendoza</option>
+                  <option>Salta</option>
+                  <option>Santa Fe</option>
+                </select>
+              </label>
+              <label>
+                Localidad
+                <input type="text" name="localidad" required />
+              </label>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Sección B — Datos del Equipo</legend>
+          <div class="grupo">
+            <div class="fila">
+              <label>
+                Tipo de dispositivo
+                <select id="tipoDispositivo" name="tipoDispositivo" required>
+                  <option value="">Seleccione un tipo</option>
+                  <option>Notebook</option>
+                  <option>Computador de escritorio</option>
+                  <option>Impresora</option>
+                  <option>Tablet</option>
+                  <option>Teléfono móvil</option>
+                  <option>Otro</option>
+                </select>
+              </label>
+              <label>
+                Marca
+                <select id="marcaEquipo" name="marca" required>
+                  <option value="">Seleccione una marca</option>
+                  <option>HP</option>
+                  <option>Dell</option>
+                  <option>Lenovo</option>
+                  <option>Apple</option>
+                  <option>Samsung</option>
+                  <option>Asus</option>
+                  <option>Acer</option>
+                  <option>Canon</option>
+                  <option>Epson</option>
+                  <option>Otra</option>
+                </select>
+              </label>
+            </div>
+
+            <div id="otroDispositivo" style="display:none" class="fila">
+              <label>
+                Especificar dispositivo
+                <input type="text" name="otroDispositivo" />
+              </label>
+            </div>
+
+            <div id="otraMarca" style="display:none" class="fila">
+              <label>
+                Marca alternativa
+                <input type="text" name="marcaOtra" />
+              </label>
+            </div>
+
+            <div class="fila">
+              <label>
+                Modelo
+                <input type="text" name="modelo" required />
+              </label>
+              <label>
+                Número de serie o IMEI
+                <input type="text" name="serie" />
+                <span class="nota">Se encuentra en la etiqueta inferior o en la configuración del equipo.</span>
+              </label>
+            </div>
+
+            <div class="fila">
+              <label>
+                Sistema operativo
+                <select name="sistemaOperativo" required>
+                  <option value="">Seleccione una opción</option>
+                  <option>Windows 10</option>
+                  <option>Windows 11</option>
+                  <option>macOS</option>
+                  <option>Linux</option>
+                  <option>Android</option>
+                  <option>iOS</option>
+                  <option>No aplica / No sabe</option>
+                </select>
+              </label>
+              <div>
+                <label class="checkbox-grupo">
+                  <input type="checkbox" id="garantiaVigente" name="garantiaVigente" />
+                  El equipo tiene garantía vigente del fabricante
+                </label>
+                <div id="garantiaCampos" style="display:none; margin-top:0.5rem;">
+                  <label>
+                    Orden de compra / Fecha de compra
+                    <input type="text" name="ordenCompra" />
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="grupo">
+              <label class="checkbox-grupo">
+                <input type="checkbox" id="datosImportantes" name="datosImportantes" />
+                El equipo contiene datos importantes sin respaldo
+              </label>
+              <div class="advertencia">
+                TechFix no se responsabiliza por pérdida de datos. Se recomienda realizar respaldo previo.
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Sección C — Descripción del Problema</legend>
+          <div class="grupo">
+            <div class="fila">
+              <label>
+                Tipo de problema principal
+                <select name="tipoProblema" required>
+                  <option value="">Seleccione un problema</option>
+                  <option>No enciende</option>
+                  <option>Pantalla dañada</option>
+                  <option>Lentitud o rendimiento</option>
+                  <option>Virus o malware</option>
+                  <option>Problema de red o conectividad</option>
+                  <option>Daño por líquido</option>
+                  <option>Sonido</option>
+                  <option>Otro</option>
+                </select>
+              </label>
+              <label>
+                Desde cuándo ocurre el problema
+                <select name="duracionProblema" required>
+                  <option value="">Seleccione una opción</option>
+                  <option>Hoy</option>
+                  <option>Hace algunos días</option>
+                  <option>Hace semanas</option>
+                  <option>Hace meses</option>
+                </select>
+              </label>
+            </div>
+
+            <div>
+              <span>El problema es</span>
+              <div class="radio-grupo">
+                <label><input type="radio" name="problemaPermanente" value="Permanente" required /> Permanente</label>
+                <label><input type="radio" name="problemaPermanente" value="Intermitente" /> Intermitente</label>
+              </div>
+            </div>
+
+            <label>
+              Descripción detallada del problema
+              <textarea id="descripcionProblema" name="descripcionProblema" minlength="20" maxlength="500" required></textarea>
+              <span class="contador" id="contadorDescripcion">0 / 500</span>
+            </label>
+
+            <label class="checkbox-grupo">
+              <input type="checkbox" id="reparadoAntes" name="reparadoAntes" />
+              El cliente ya intentó repararlo o lo llevó a otro técnico
+            </label>
+            <div id="detalleReparacion" style="display:none;">
+              <label>
+                Describa qué se hizo anteriormente
+                <textarea id="detalleReparacionTexto" name="detalleReparacion" maxlength="300"></textarea>
+                <span class="contador" id="contadorDetalle">0 / 300</span>
+              </label>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Sección D — Preferencias de Entrega y Confirmación</legend>
+          <div class="grupo">
+            <div>
+              <span>Modalidad de entrega</span>
+              <div class="radio-grupo">
+                <label><input type="radio" name="modalidadEntrega" value="Local" required /> Lo llevo personalmente al local</label>
+                <label><input type="radio" name="modalidadEntrega" value="Domicilio" /> Solicito retiro a domicilio</label>
+              </div>
+            </div>
+
+            <div id="direccionDomicilio" style="display:none; margin-top:1rem;">
+              <label>
+                Dirección completa
+                <input type="text" name="direccionDomicilio" />
+              </label>
+            </div>
+
+            <label>
+              Presupuesto máximo autorizado sin consulta previa
+              <select name="presupuesto" required>
+                <option value="">Seleccione una opción</option>
+                <option>Hasta $5.000</option>
+                <option>Hasta $15.000</option>
+                <option>Hasta $30.000</option>
+                <option>Sin límite</option>
+                <option>Necesito consultar antes de aprobar cualquier gasto</option>
+              </select>
+            </label>
+
+            <div>
+              <span>Preferencia de contacto</span>
+              <div class="checkbox-grupo">
+                <label><input type="checkbox" name="contacto[]" value="WhatsApp" /> WhatsApp</label>
+                <label><input type="checkbox" name="contacto[]" value="Correo" /> Correo electrónico</label>
+                <label><input type="checkbox" name="contacto[]" value="Llamada" /> Llamada telefónica</label>
+              </div>
+            </div>
+
+            <label>
+              Horario preferido para ser contactado
+              <select name="horarioContacto" required>
+                <option value="">Seleccione una opción</option>
+                <option>Mañana 9 a 12</option>
+                <option>Tarde 12 a 17</option>
+                <option>Tarde-noche 17 a 20</option>
+                <option>Indistinto</option>
+              </select>
+            </label>
+
+            <label class="checkbox-grupo">
+              <input type="checkbox" name="aceptaDiagnostico" required /> Acepto que el diagnóstico puede demorar hasta 48 horas hábiles
+            </label>
+            <label class="checkbox-grupo">
+              <input type="checkbox" name="aceptaTerminos" required /> Acepto los <a href="#" target="_blank">Términos y Condiciones</a>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="acciones">
+          <button type="submit" class="boton boton--principal">Registrar ingreso</button>
+          <button type="reset" class="boton boton--secundario">Limpiar</button>
+        </div>
+      </form>
+
+      <a class="enlace-inicio" href="index.html">Volver al inicio</a>
     </div>
+
+    <script>
+      const tipoClienteRadios = document.querySelectorAll('input[name="tipoCliente"]');
+      const empresaCampos = document.getElementById('empresaCampos');
+      const tipoDispositivo = document.getElementById('tipoDispositivo');
+      const otroDispositivo = document.getElementById('otroDispositivo');
+      const marcaEquipo = document.getElementById('marcaEquipo');
+      const otraMarca = document.getElementById('otraMarca');
+      const garantiaVigente = document.getElementById('garantiaVigente');
+      const garantiaCampos = document.getElementById('garantiaCampos');
+      const reparadoAntes = document.getElementById('reparadoAntes');
+      const detalleReparacion = document.getElementById('detalleReparacion');
+      const modalidadEntrega = document.querySelectorAll('input[name="modalidadEntrega"]');
+      const direccionDomicilio = document.getElementById('direccionDomicilio');
+      const descripcionProblema = document.getElementById('descripcionProblema');
+      const contadorDescripcion = document.getElementById('contadorDescripcion');
+      const detalleReparacionTexto = document.getElementById('detalleReparacionTexto');
+      const contadorDetalle = document.getElementById('contadorDetalle');
+      const form = document.getElementById('formIngreso');
+
+      function actualizarEmpresa() {
+        const seleccionado = document.querySelector('input[name="tipoCliente"]:checked').value;
+        empresaCampos.style.display = seleccionado === 'Empresa' ? 'grid' : 'none';
+      }
+
+      function actualizarDispositivo() {
+        otroDispositivo.style.display = tipoDispositivo.value === 'Otro' ? 'grid' : 'none';
+      }
+
+      function actualizarMarca() {
+        otraMarca.style.display = marcaEquipo.value === 'Otra' ? 'grid' : 'none';
+      }
+
+      function actualizarGarantia() {
+        garantiaCampos.style.display = garantiaVigente.checked ? 'block' : 'none';
+      }
+
+      function actualizarReparadoAntes() {
+        detalleReparacion.style.display = reparadoAntes.checked ? 'block' : 'none';
+      }
+
+      function actualizarEntrega() {
+        const seleccionado = document.querySelector('input[name="modalidadEntrega"]:checked');
+        direccionDomicilio.style.display = seleccionado && seleccionado.value === 'Domicilio' ? 'block' : 'none';
+      }
+
+      function actualizarContador(textarea, contador) {
+        contador.textContent = `${textarea.value.length} / ${textarea.maxLength}`;
+      }
+
+      tipoClienteRadios.forEach(radio => radio.addEventListener('change', actualizarEmpresa));
+      tipoDispositivo.addEventListener('change', actualizarDispositivo);
+      marcaEquipo.addEventListener('change', actualizarMarca);
+      garantiaVigente.addEventListener('change', actualizarGarantia);
+      reparadoAntes.addEventListener('change', actualizarReparadoAntes);
+      modalidadEntrega.forEach(radio => radio.addEventListener('change', actualizarEntrega));
+      descripcionProblema.addEventListener('input', () => actualizarContador(descripcionProblema, contadorDescripcion));
+      detalleReparacionTexto.addEventListener('input', () => actualizarContador(detalleReparacionTexto, contadorDetalle));
+
+      actualizarEmpresa();
+      actualizarDispositivo();
+      actualizarMarca();
+      actualizarGarantia();
+      actualizarReparadoAntes();
+      actualizarEntrega();
+      actualizarContador(descripcionProblema, contadorDescripcion);
+      actualizarContador(detalleReparacionTexto, contadorDetalle);
+
+      form.addEventListener('submit', event => {
+        const email = form.email.value.trim();
+        const emailConfirm = form.emailConfirm.value.trim();
+        const contacto = Array.from(form.querySelectorAll('input[name="contacto[]"]')).some(input => input.checked);
+        const modalidad = form.querySelector('input[name="modalidadEntrega"]:checked');
+
+        if (email !== emailConfirm) {
+          alert('Los correos electrónicos no coinciden.');
+          form.emailConfirm.focus();
+          event.preventDefault();
+          return;
+        }
+
+        if (!contacto) {
+          alert('Debe seleccionar al menos una preferencia de contacto.');
+          event.preventDefault();
+          return;
+        }
+
+        if (modalidad && modalidad.value === 'Domicilio' && !form.direccionDomicilio.value.trim()) {
+          alert('Por favor, ingrese la dirección completa para el retiro a domicilio.');
+          form.direccionDomicilio.focus();
+          event.preventDefault();
+          return;
+        }
+      });
+    </script>
   </body>
 </html>

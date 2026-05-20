@@ -35,3 +35,16 @@ Links a redes sociales
 Ano de copyright. y quita las cosas inesesarias que pusiste] ------------------------------------------------------------
 RESPUESTA RECIBIDA (resumen breve): [añadio todo lo que pedi quito el boton de formulario ] ------------------------------------------------------
 ------ REFLEXION PERSONAL: [muy util añadi todo lo que me pedia la etapa 1 que me faltaba y añadi el boton de formulario] 
+
+
+Etapa del proyecto: Etapa 2  Fecha:
+[20/05/2026] ------------------------------------------------------------
+PROMPT ENVIADO A COPILOT: [Por favor, crea un formulario básico en formulario.html con cuatro secciones claramente diferenciadas:
+
+Sección A — Datos del Cliente
+Sección B — Datos del Equipo
+Sección C — Descripción del Problema
+Sección D — Preferencias de Entrega y Confirmación
+Incluye los campos obligatorios, los campos condicionales que aparecen según la selección del usuario, un contador para los textarea y los botones Registrar ingreso (submit), Limpiar (reset) y el enlace Volver al inicio hacia index.html."] ------------------------------------------------------------
+RESPUESTA RECIBIDA (resumen breve): [añadio todo lo que pedi datos de cilente rut correo etc lo mismo con las demas coisas ] ------------------------------------------------------
+------ REFLEXION PERSONAL: [util añadio formulario y quita las cosas que no pedia la prueba y añadi las que faltaban] 
