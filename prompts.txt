@@ -1,0 +1,9 @@
+Etapa del proyecto: Etapa 1  Fecha:
+[20/05/2026] ------------------------------------------------------------
+PROMPT ENVIADO A COPILOT: [haz un la estuctura de un sitio html con estilo css de un sitio web de llamado TechFix, un servicio
+tecnico especializado en reparacion y mantenimiento de computadores de escritorio, notebooks,
+impresoras y dispositivos moviles. El negocio tambien ofrece venta de repuestos, actualizacion de
+hardware y soporte remoto] ------------------------------------------------------------
+RESPUESTA RECIBIDA (resumen breve): [hizo las bases de css html y los estilos nav y pies nesecesarios] ----------------------------------------------------------
+-- USO EN EL PROYECTO: [si la modifique.] ------------------------------------------------------
+------ REFLEXION PERSONAL: [si fue util para tener una maqueta para guiarme y modificar lo que me guste] 
