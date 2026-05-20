@@ -178,6 +178,51 @@
         color: var(--gris);
       }
 
+      .contador-naranja {
+        color: #f59e0b;
+      }
+
+      .contador-rojo {
+        color: #ef4444;
+      }
+
+      .error-mensaje {
+        margin-top: 0.5rem;
+        color: #f87171;
+        font-size: 0.87rem;
+      }
+
+      .confirmacion {
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: var(--borde);
+        padding: 1.75rem;
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 24px 50px rgba(0, 0, 0, 0.22);
+        margin-top: 1.5rem;
+      }
+
+      .confirmacion__titulo {
+        margin: 0 0 1rem;
+        font-size: 1.25rem;
+        color: var(--primario);
+      }
+
+      .confirmacion__detalle {
+        margin: 1rem 0 1.25rem;
+        color: var(--gris);
+        line-height: 1.7;
+      }
+
+      .confirmacion__acciones {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .confirmacion .boton {
+        min-width: 180px;
+      }
+
       .acciones {
         display: flex;
         flex-wrap: wrap;
@@ -237,6 +282,7 @@
       </header>
 
       <form id="formIngreso" novalidate>
+        <div id="resumenErrores" class="advertencia" style="display:none"></div>
         <fieldset>
           <legend>Sección A — Datos del Cliente</legend>
           <div class="grupo">
@@ -536,118 +582,11 @@
         </div>
       </form>
 
+      <section id="confirmacion" class="confirmacion" style="display:none"></section>
+
       <a class="enlace-inicio" href="index.html">Volver al inicio</a>
     </div>
 
-    <script>
-      const tipoClienteRadios = document.querySelectorAll('input[name="tipoCliente"]');
-      const empresaCampos = document.getElementById('empresaCampos');
-      const tipoDispositivo = document.getElementById('tipoDispositivo');
-      const otroDispositivo = document.getElementById('otroDispositivo');
-      const marcaEquipo = document.getElementById('marcaEquipo');
-      const otraMarca = document.getElementById('otraMarca');
-      const garantiaVigente = document.getElementById('garantiaVigente');
-      const garantiaCampos = document.getElementById('garantiaCampos');
-      const reparadoAntes = document.getElementById('reparadoAntes');
-      const detalleReparacion = document.getElementById('detalleReparacion');
-      const modalidadEntrega = document.querySelectorAll('input[name="modalidadEntrega"]');
-      const direccionDomicilio = document.getElementById('direccionDomicilio');
-      const direccionInput = document.querySelector('input[name="direccionDomicilio"]');
-      const descripcionProblema = document.getElementById('descripcionProblema');
-      const contadorDescripcion = document.getElementById('contadorDescripcion');
-      const detalleReparacionTexto = document.getElementById('detalleReparacionTexto');
-      const contadorDetalle = document.getElementById('contadorDetalle');
-      const empresaNombre = document.querySelector('input[name="empresaNombre"]');
-      const empresaCuit = document.querySelector('input[name="empresaCuit"]');
-      const marcaOtraInput = document.querySelector('input[name="marcaOtra"]');
-      const otroDispositivoInput = document.querySelector('input[name="otroDispositivo"]');
-      const form = document.getElementById('formIngreso');
-
-      function actualizarEmpresa() {
-        const seleccionado = document.querySelector('input[name="tipoCliente"]:checked').value;
-        const visible = seleccionado === 'Empresa';
-        empresaCampos.style.display = visible ? 'grid' : 'none';
-        empresaNombre.required = visible;
-        empresaCuit.required = visible;
-      }
-
-      function actualizarDispositivo() {
-        const visible = tipoDispositivo.value === 'Otro';
-        otroDispositivo.style.display = visible ? 'grid' : 'none';
-        otroDispositivoInput.required = visible;
-      }
-
-      function actualizarMarca() {
-        const visible = marcaEquipo.value === 'Otra';
-        otraMarca.style.display = visible ? 'grid' : 'none';
-        marcaOtraInput.required = visible;
-      }
-
-      function actualizarGarantia() {
-        const visible = garantiaVigente.checked;
-        garantiaCampos.style.display = visible ? 'block' : 'none';
-      }
-
-      function actualizarReparadoAntes() {
-        const visible = reparadoAntes.checked;
-        detalleReparacion.style.display = visible ? 'block' : 'none';
-      }
-
-      function actualizarEntrega() {
-        const seleccionado = document.querySelector('input[name="modalidadEntrega"]:checked');
-        const visible = seleccionado && seleccionado.value === 'Domicilio';
-        direccionDomicilio.style.display = visible ? 'block' : 'none';
-        direccionInput.required = visible;
-      }
-
-      function actualizarContador(textarea, contador) {
-        contador.textContent = `${textarea.value.length} / ${textarea.maxLength}`;
-      }
-
-      tipoClienteRadios.forEach(radio => radio.addEventListener('change', actualizarEmpresa));
-      tipoDispositivo.addEventListener('change', actualizarDispositivo);
-      marcaEquipo.addEventListener('change', actualizarMarca);
-      garantiaVigente.addEventListener('change', actualizarGarantia);
-      reparadoAntes.addEventListener('change', actualizarReparadoAntes);
-      modalidadEntrega.forEach(radio => radio.addEventListener('change', actualizarEntrega));
-      descripcionProblema.addEventListener('input', () => actualizarContador(descripcionProblema, contadorDescripcion));
-      detalleReparacionTexto.addEventListener('input', () => actualizarContador(detalleReparacionTexto, contadorDetalle));
-
-      actualizarEmpresa();
-      actualizarDispositivo();
-      actualizarMarca();
-      actualizarGarantia();
-      actualizarReparadoAntes();
-      actualizarEntrega();
-      actualizarContador(descripcionProblema, contadorDescripcion);
-      actualizarContador(detalleReparacionTexto, contadorDetalle);
-
-      form.addEventListener('submit', event => {
-        const email = form.email.value.trim();
-        const emailConfirm = form.emailConfirm.value.trim();
-        const contacto = Array.from(form.querySelectorAll('input[name="contacto[]"]')).some(input => input.checked);
-        const modalidad = form.querySelector('input[name="modalidadEntrega"]:checked');
-
-        if (email !== emailConfirm) {
-          alert('Los correos electrónicos no coinciden.');
-          form.emailConfirm.focus();
-          event.preventDefault();
-          return;
-        }
-
-        if (!contacto) {
-          alert('Debe seleccionar al menos una preferencia de contacto.');
-          event.preventDefault();
-          return;
-        }
-
-        if (modalidad && modalidad.value === 'Domicilio' && !form.direccionDomicilio.value.trim()) {
-          alert('Por favor, ingrese la dirección completa para el retiro a domicilio.');
-          form.direccionDomicilio.focus();
-          event.preventDefault();
-          return;
-        }
-      });
-    </script>
+    <script src="validacion.js"></script>
   </body>
 </html>

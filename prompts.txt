@@ -82,3 +82,11 @@ campos adicionales se muestran/ocultan correctamente
 los campos condicionales se marcan como required cuando aparecen] ------------------------------------------------------------
 RESPUESTA RECIBIDA (resumen breve): [añadiotodo lo pedido hizo el formulario mas similiar al index ya hecho ] ------------------------------------------------------
 ------ REFLEXION PERSONAL: [util util añadio cosas que me faltaban y hizo el formulario mas parecido al index con alguno errores simple de texto que no se veia pero lo corregia a mano y se soluciono facil] 
+
+
+
+Etapa del proyecto: Etapa 3  Fecha:
+[20/05/2026] ------------------------------------------------------------
+PROMPT ENVIADO A COPILOT: [valida todas las preguntas del formulario y pon las validacion de js a validaciones.js] ------------------------------------------------------------
+RESPUESTA RECIBIDA (resumen breve): [lo hizo con el error de poner el registro no lo hacia] ------------------------------------------------------
+------ REFLEXION PERSONAL: [uti y hizo todas las valiaciones con el error de no confirmrla al regitrarse pero con unas modificaciones se pudo lograr] 
