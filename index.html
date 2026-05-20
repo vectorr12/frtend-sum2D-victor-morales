@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -7,119 +7,262 @@
     <link rel="stylesheet" href="estilos.css" />
   </head>
   <body>
-    <header class="hero">
-      <div class="hero-nav">
-        <div class="hero-nav__marca">
-          <img src="images/imagen 1.webp" alt="Logo TechFix" class="hero-logo" />
+    <header class="cabecera">
+      <div class="nav contenedor nav--top">
+        <a href="#inicio" class="logo">
+          <img src="images/imagen 1.webp" alt="Logo TechFix" />
           <span>TechFix</span>
-        </div>
-        <nav class="hero-nav__menu">
-          <a class="hero-nav__link" href="#servicios">Servicios</a>
-          <a class="hero-nav__link" href="#contacto">Contacto</a>
-          <a class="hero-nav__link" href="#soporte">Soporte</a>
-          <a class="hero-nav__link" href="formulario.html">Formulario</a>
+        </a>
+        <nav class="menu">
+          <a href="#inicio">Inicio</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#precios">Precios</a>
+          <a href="#nosotros">Nosotros</a>
+          <a class="boton boton--secundario" href="ingreso.html">Ingresar equipo</a>
         </nav>
       </div>
-      <div class="hero__contenido">
-        <p class="hero__subtitulo">Servicio técnico especializado</p>
-        <h1>Reparación y mantenimiento para computadoras, impresoras y móviles</h1>
-        <p class="hero__texto">
-          TechFix ofrece soporte confiable para desktop, notebooks, impresoras y dispositivos móviles.
-          También vendemos repuestos, actualizamos hardware y damos soporte remoto.
-        </p>
-        <div class="hero__acciones">
-          <a href="#servicios" class="boton boton--principal">Ver servicios</a>
-          <a href="#contacto" class="boton boton--secundario">Contáctanos</a>
-          <a href="formulario.html" class="boton boton--principal">Formulario</a>
+
+      <section class="hero" id="inicio">
+        <div class="hero__contenido contenedor">
+          <div class="hero__texto">
+            <p class="hero__tag">Servicio técnico rápido y confiable</p>
+            <h1>TechFix, tu reparación informática de confianza</h1>
+            <p>
+              Soluciones inmediatas para notebooks, desktops, impresoras y móviles con diagnóstico gratuito,
+              garantía escrita y más de 8 años de experiencia.
+            </p>
+            <div class="hero__acciones">
+              <a class="boton boton--principal" href="ingreso.html">Ingresar mi equipo</a>
+              <a class="boton boton--principal" href="formulario.html">formulario para ingreso</a>
+              <a class="boton boton--secundario" href="#servicios">Ver servicios</a>
+            </div>
+          </div>
+
+          <div class="hero__indicadores">
+            <div class="indicador">
+              <span>✔</span>
+              <p>Diagnóstico gratuito</p>
+            </div>
+            <div class="indicador">
+              <span>📄</span>
+              <p>Garantía escrita</p>
+            </div>
+            <div class="indicador">
+              <span>⭐</span>
+              <p>Más de 8 años de experiencia</p>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
     </header>
 
     <main>
       <section class="seccion seccion--fondo" id="servicios">
         <div class="contenedor">
-          <div class="intro">
-            <h2>Servicios técnicos para cada equipo</h2>
-            <p>
-              En TechFix nos encargamos de que tus dispositivos funcionen mejor. Ofrecemos diagnóstico, reparación,
-              mantenimiento y asesoría profesional para todos tus equipos.
-            </p>
+          <div class="seccion__cabecera">
+            <h2>Servicios TechFix</h2>
+            <p>Ofrecemos una solución completa para tus equipos con atención especializada y tiempos de respuesta rápidos.</p>
           </div>
 
-          <div class="grid-servicios">
-            <article class="tarjeta">
-              <h3>Computadoras de escritorio</h3>
-              <p>Reparación de hardware, optimización de sistemas, actualización de componentes y mantenimiento.</p>
+          <div class="servicios-grid">
+            <article class="servicio-card">
+              <div class="servicio-card__icon">💻</div>
+              <h3>Reparación de notebooks y desktops</h3>
+              <p>Diagnóstico y reparación de fallas de hardware, componentes internos y circuitos.</p>
+              <span>Tiempo estimado: 24-48 hs</span>
             </article>
-            <article class="tarjeta">
-              <h3>Notebooks</h3>
-              <p>Soluciones para pantallas, baterías, discos, memoria, conectividad y problemas de arranque.</p>
+            <article class="servicio-card">
+              <div class="servicio-card__icon">⌨️</div>
+              <h3>Cambio de pantalla y teclado</h3>
+              <p>Reemplazo rápido de pantallas, teclados y periféricos con piezas certificadas.</p>
+              <span>Tiempo estimado: 24 hs</span>
             </article>
-            <article class="tarjeta">
-              <h3>Impresoras</h3>
-              <p>Mantenimiento, limpieza, instalación de drivers, solución de atascos y reemplazo de repuestos.</p>
+            <article class="servicio-card">
+              <div class="servicio-card__icon">🧼</div>
+              <h3>Limpieza y mantenimiento preventivo</h3>
+              <p>Retiro de polvo, cambio de pasta térmica y optimización interna para mejor rendimiento.</p>
+              <span>Tiempo estimado: 24-36 hs</span>
             </article>
-            <article class="tarjeta">
-              <h3>Dispositivos móviles</h3>
-              <p>Reparación de pantallas, baterías, puertos y software en celulares y tablets.</p>
+            <article class="servicio-card">
+              <div class="servicio-card__icon">🖥️</div>
+              <h3>Instalación de sistema operativo</h3>
+              <p>Instalación y reinstalación de Windows, Linux y configuraciones de software.</p>
+              <span>Tiempo estimado: 24-48 hs</span>
+            </article>
+            <article class="servicio-card">
+              <div class="servicio-card__icon">💾</div>
+              <h3>Recuperación de datos</h3>
+              <p>Rescate de archivos perdidos o dañados desde discos duros, SSD y memorias USB.</p>
+              <span>Tiempo estimado: 48-72 hs</span>
+            </article>
+            <article class="servicio-card">
+              <div class="servicio-card__icon">🌐</div>
+              <h3>Soporte remoto</h3>
+              <p>Asistencia técnica en línea para solucionar problemas de software y configuración.</p>
+              <span>Tiempo estimado: 1-4 hs</span>
+            </article>
+            <article class="servicio-card">
+              <div class="servicio-card__icon">🛒</div>
+              <h3>Venta de repuestos y accesorios</h3>
+              <p>Componentes, memorias, discos, cargadores y periféricos a tu alcance.</p>
+              <span>Tiempo estimado: 24-48 hs</span>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="seccion seccion--oscura" id="soporte">
+      <section class="seccion" id="marcas">
+        <div class="contenedor">
+          <div class="seccion__cabecera">
+            <h2>Marcas y dispositivos atendidos</h2>
+            <p>Atendemos equipos de las principales marcas y dispositivos especializados.</p>
+          </div>
+
+          <div class="marca-grid">
+            <div class="marca-item">HP</div>
+            <div class="marca-item">Dell</div>
+            <div class="marca-item">Lenovo</div>
+            <div class="marca-item">Apple</div>
+            <div class="marca-item">Samsung</div>
+            <div class="marca-item">Asus</div>
+            <div class="marca-item">Acer</div>
+            <div class="marca-item">Canon</div>
+            <div class="marca-item">Epson</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="seccion seccion--fondo" id="precios">
+        <div class="contenedor">
+          <div class="seccion__cabecera">
+            <h2>Precios referenciales</h2>
+            <p>Consulta nuestros precios guía para los servicios más solicitados.</p>
+          </div>
+
+          <div class="tabla-contenedor">
+            <table class="tabla-precios">
+              <thead>
+                <tr>
+                  <th>Servicio</th>
+                  <th>Precio desde</th>
+                  <th>Tiempo estimado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Reparación de notebooks y desktops</td>
+                  <td>$800</td>
+                  <td>24-48 hs</td>
+                </tr>
+                <tr>
+                  <td>Cambio de pantalla y teclado</td>
+                  <td>$950</td>
+                  <td>24 hs</td>
+                </tr>
+                <tr>
+                  <td>Limpieza y mantenimiento preventivo</td>
+                  <td>$500</td>
+                  <td>24-36 hs</td>
+                </tr>
+                <tr>
+                  <td>Instalación de sistema operativo</td>
+                  <td>$650</td>
+                  <td>24-48 hs</td>
+                </tr>
+                <tr>
+                  <td>Recuperación de datos</td>
+                  <td>$1500</td>
+                  <td>48-72 hs</td>
+                </tr>
+                <tr>
+                  <td>Soporte remoto</td>
+                  <td>$450</td>
+                  <td>1-4 hs</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="seccion" id="nosotros">
         <div class="contenedor contenedor--dos-columnas">
           <div>
-            <h2>Actualización y soporte remoto</h2>
+            <h2>Nosotros</h2>
             <p class="intro">
-              Mejora el rendimiento de tus equipos con actualizaciones seguras y obtén ayuda rápida sin salir de casa.
+              TechFix es un servicio técnico con más de 8 años de experiencia en reparación, mantenimiento y soporte técnico.
+              Nuestro equipo combina rapidez, transparencia y soluciones con garantía escrita.
             </p>
             <ul class="lista-beneficios">
-              <li>Venta de repuestos y componentes certificados</li>
-              <li>Actualización de memoria, almacenamiento y procesadores</li>
-              <li>Soporte remoto para resolución de problemas y optimización</li>
-              <li>Mantenimiento preventivo y asesoría técnica personalizada</li>
+              <li>Personal certificado y atención profesional</li>
+              <li>Diagnóstico sin costo y presupuestos claros</li>
+              <li>Repuestos originales y compatibles</li>
             </ul>
           </div>
           <div>
             <div class="tarjeta tarjeta--destacada">
-              <h3>Soporte remoto inmediato</h3>
-              <p>
-                Conecta tu equipo y recibe asistencia remota rápida para reparar software, instalar actualizaciones y
-                mejorar tu productividad.
-              </p>
+              <h3>Tu equipo en manos seguras</h3>
+              <p>Atendemos tus equipos con protocolos de calidad para que vuelvas a trabajar sin demoras.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="seccion seccion--fondo" id="contacto">
+      <section class="seccion seccion--fondo testimonios" id="testimonios">
         <div class="contenedor">
-          <h2>Contacta a TechFix</h2>
-          <p class="intro">
-            Pide tu presupuesto, agenda una revisión o consulta a nuestros especialistas en reparación y mantenimiento.
-          </p>
+          <div class="seccion__cabecera">
+            <h2>Testimonios</h2>
+            <p>Lo que dicen nuestros clientes tras recibir soporte y reparación técnica.</p>
+          </div>
 
-          <div class="contacto-grid">
-            <div class="tarjeta contacto-card">
-              <h3>Teléfono</h3>
-              <p>+52 55 1234 5678</p>
-            </div>
-            <div class="tarjeta contacto-card">
-              <h3>Correo</h3>
-              <p>contacto@techfix.com</p>
-            </div>
-            <div class="tarjeta contacto-card">
-              <h3>Ubicación</h3>
-              <p>Taller técnico local con servicio a domicilio y soporte remoto.</p>
-            </div>
+          <div class="grid-testimonios">
+            <article class="testimonial-card">
+              <p class="testimonial-text">"Recibí mi notebook reparada en 24 horas y con garantía escrita. Excelente servicio."</p>
+              <p class="testimonial-meta"><strong>Ana M.</strong> - Reparación de notebook · ★★★★☆</p>
+            </article>
+            <article class="testimonial-card">
+              <p class="testimonial-text">"Muy rápido el soporte remoto y solucionaron el problema de software sin que yo tuviera que moverme."</p>
+              <p class="testimonial-meta"><strong>Carlos R.</strong> - Soporte remoto · ★★★★★</p>
+            </article>
+            <article class="testimonial-card">
+              <p class="testimonial-text">"La limpieza y mantenimiento dejó mi PC como nueva. El precio fue justo y transparente."</p>
+              <p class="testimonial-meta"><strong>Laura S.</strong> - Mantenimiento preventivo · ★★★★☆</p>
+            </article>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="pie-pagina">
-      <p>© 2026 TechFix. Servicio técnico especializado en computadores, impresoras y dispositivos móviles.</p>
+      <div class="contenedor pie-grid">
+        <div>
+          <div class="footer-logo">
+            <img src="images/imagen 1.webp" alt="Logo TechFix" />
+            <span>TechFix</span>
+          </div>
+          <p>Reparación y mantenimiento de equipos informáticos con soporte presencial y remoto.</p>
+        </div>
+
+        <div>
+          <h3>Horario de atención</h3>
+          <p>Presencial: Lun a Vie 9:00 - 18:00</p>
+          <p>Remoto: Lun a Dom 8:00 - 21:00</p>
+        </div>
+
+        <div>
+          <h3>Contacto</h3>
+          <p>Dirección: Av. Tecnológica 123, Ciudad</p>
+          <p>Email: contacto@techfix.com</p>
+          <p>Tel: +52 55 1234 5678</p>
+          <p>WhatsApp: +52 55 8765 4321</p>
+          <div class="redes-sociales">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <p class="pie-copyright">© 2026 TechFix. Todos los derechos reservados.</p>
     </footer>
   </body>
 </html>

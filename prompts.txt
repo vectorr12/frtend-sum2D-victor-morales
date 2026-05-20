@@ -13,3 +13,25 @@ Etapa del proyecto: Etapa 1  Fecha:
 PROMPT ENVIADO A COPILOT: [haz el el html mas simple y pon un boton para un formulario para el html formulario.html y añade la imagen de la carpeta images imagen 1.webp que es el logo de la empresa] ------------------------------------------------------------
 RESPUESTA RECIBIDA (resumen breve): [en el formulario puso el boton para abrir el formulario] ------------------------------------------------------
 ------ REFLEXION PERSONAL: [no fue nada util yo añadi el boton para el formulario a mano] 
+
+Etapa del proyecto: Etapa 1  Fecha:
+[20/05/2026] ------------------------------------------------------------
+PROMPT ENVIADO A COPILOT: [añade todo esto al html Barra de Navegacion
+HP, Dell,
+Lenovo, Apple, Samsung, Asus, Acer, Impresoras Canon y Epson.
+Seccion Tabla de Precios Referenciales
+Mostrar una tabla HTML con precios referenciales de los servicios mas comunes. La tabla debe
+incluir al menos 6 filas con las columnas: Servicio, Precio desde y Tiempo estimado. La tabla debe
+estar estilizada con CSS (cabecera con color de fondo, filas alternadas, bordes).
+Seccion Testimonios (minimo 3)
+Nombre del cliente, tipo de servicio recibido, texto del comentario y calificacion.
+Evaluacion Sumativa 2 | Desarrollo Web HTML & JS Servicio Tecnico TechFix
+Programacion Web | Pagina 5
+Footer
+Nombre y logo del servicio tecnico.
+Horarios de atencion presencial y remota.
+Direccion, email, telefono y WhatsApp 
+Links a redes sociales 
+Ano de copyright. y quita las cosas inesesarias que pusiste] ------------------------------------------------------------
+RESPUESTA RECIBIDA (resumen breve): [añadio todo lo que pedi quito el boton de formulario ] ------------------------------------------------------
+------ REFLEXION PERSONAL: [muy util añadi todo lo que me pedia la etapa 1 que me faltaba y añadi el boton de formulario] 
